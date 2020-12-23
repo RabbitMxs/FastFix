@@ -1,8 +1,46 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<title>Page Title</title>
+		<title>Fast Fix</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
 	</head>
-	<body></body>
+	<body>
+		<div class="container d-grid ancho-col una-col">
+			<img src="images/logo.png" alt="Fast Fix" class="img-fluid mx-auto" />
+			<div>
+				<label for="email">Email address</label>
+				<input
+					type="email"
+					class="form-control"
+					id="email"
+					aria-describedby="emailHelp"
+					placeholder="Enter email"
+				/>
+				<small id="emailHelp" class="form-text text-muted"
+					>We'll never share your email with anyone else.
+				</small>
+			</div>
+
+			<div class="space-items">
+				<label for="password" class="col-sm-2 col-form-label">Password</label>
+				<input type="password" class="form-control" id="password" />
+			</div>
+			<button type="submit" class="btn btn-custom space-items">Submit</button>
+			<a
+				href="#"
+				class="link-secondary text-decoration-none text-capitalize mx-auto space-items"
+			>
+				forgot password?
+			</a>
+			<b class="mx-auto">
+				<a
+					href="#"
+					class="link-secondary text-decoration-none text-capitalize text-black-50"
+				>
+					Sing in
+				</a>
+			</b>
+		</div>
+	</body>
 </html>
