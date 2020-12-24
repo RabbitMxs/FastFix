@@ -6,6 +6,31 @@
 	grid-template-columns: 1fr;
 }
 
+.tres-col {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.space-cell {
+	column-gap: 20px;
+	row-gap: 20px;
+}
+
+.unir-celdas {
+	grid-column: 1 / 4;
+}
+
+.button-submit {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 35%;
+}
+
+.btn-submit {
+	width: 100%;
+	font-size: 1.5em;
+}
+
 .logo {
 	width: 283px;
 	height: 278px;
@@ -13,6 +38,16 @@
 
 .space-items {
 	margin-top: 45px;
+}
+
+.logo-return {
+	display: flex;
+	align-items: end;
+	margin: 20px 20px;
+}
+
+.mt-6 {
+	margin-top: 18rem !important;
 }
 
 .btn-custom {
