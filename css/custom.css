@@ -89,3 +89,11 @@
 	background-color: #54bfd8;
 	border-color: #54bfd8;
 }
+
+.dividir {
+	justify-content: space-between;
+}
+
+.color {
+	color: #fff;
+}
