@@ -1,7 +1,8 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['nombre']) && $_SESSION['tipo']=='1'){
-		header('location:../index.html?m=50');
+	//var_dump($_SESSION);
+	if(!(isset($_SESSION['nombre'])) || $_SESSION['tipo']=='1'){
+		header('location:../index.php?m=50');
 	}
 
 ?>
@@ -10,6 +11,6 @@
     <head>
         <title>Fast Fix</title>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="../css/custom.css" />
+		<link rel="stylesheet" type="text/css" href="../css/custom.css?v=1.8" />
     </head>
     <body>

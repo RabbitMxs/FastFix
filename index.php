@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['action'])){
 	switch($_POST['action']){
 		case 'login':
@@ -15,7 +16,7 @@ if(isset($_POST['action'])){
 				//$registro=mysqli_fetch_object($bloque);//obtiene el regsitro
 				$_SESSION['nombre']=$registro->nombre;
 				$_SESSION['tipo']=$registro->idTipoUsuario;
-				$_SESSION['id']=$registro->id;
+				$_SESSION['id']=$registro->idUsuario;
 				//$_SESSION['foto']=$registro->id.".".$registro->foto;
 				if($registro->idTipoUsuario=='2'){
 					header("location: User/home.php");
@@ -66,8 +67,24 @@ else{
 					<button type="submit" class="btn btn-custom space-items d-sm-block">
 						Submit
 					</button>
-				</form>
-				<a
+				</form>';
+			session_start();
+			session_destroy();
+			if(isset($_GET['m'])){
+				switch($_GET['m']){
+					case 1: echo '<h6 class="space-items mx-auto " >REGISTRO FALLIDO</h6>';
+						break;
+					case 5: echo '<h6 class="space-items mx-auto">USUARIO NO REGISTRADO</h6>';
+						break;
+					case 50: echo '<h6 class="space-items mx-auto">NO TE LOGEASTE</h6>';
+						break;
+					case 60: echo '<h6 class="space-items mx-auto">NO TIENE PRIVILEGIOS PARA ESTAR AQUI</h6>';
+						break;
+					case 100: echo '<h6 class="space-items mx-auto">SESION TERMINADA</h6>';
+						break;	
+				}
+			}	
+			echo'<a
 					href="recover.php"
 					class="link-secondary text-decoration-none text-capitalize mx-auto space-items"
 				>

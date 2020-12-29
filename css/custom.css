@@ -6,6 +6,10 @@
 	grid-template-columns: 1fr;
 }
 
+.dos-col {
+	grid-template-columns: repeat(2, 1fr);
+}
+
 .tres-col {
 	grid-template-columns: repeat(3, 1fr);
 }
@@ -91,9 +95,28 @@
 }
 
 .dividir {
-	justify-content: space-between;
+	justify-content: end !important;
 }
 
 .color {
-	color: #fff;
+	color: #fff !important;
+}
+
+.bg-custom {
+	background-color: #54bfd8 !important;
+}
+
+.logout {
+	display: flex;
+	align-items: center;
+}
+
+.navbar-nav-custom {
+	width: 100%;
+	text-align: center;
+}
+
+.navbar-nav-custom > li {
+	float: none;
+	display: inline-block;
 }
