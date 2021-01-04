@@ -11,6 +11,6 @@
     <head>
         <title>Fast Fix</title>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="../css/custom.css?v=1.10" />
+		<link rel="stylesheet" type="text/css" href="../css/custom.css?v=1.11" />
     </head>
     <body>

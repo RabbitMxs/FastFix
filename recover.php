@@ -19,7 +19,7 @@ if(isset($_POST['action'])){
 					$nuevPWD.=$cadena[rand()%$numeC];
 				}
 				$query="UPDATE usuario SET ".
-					"clave=password('".$nuevPWD."')";
+					"clave=password('".$nuevPWD."') WHERE email='".$_POST['email']."'";
 			
 				include("Recursos/class.phpmailer.php");
 				include("Recursos/class.smtp.php");

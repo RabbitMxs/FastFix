@@ -23,6 +23,10 @@
 	grid-column: 1 / 4;
 }
 
+.unir-renglon {
+	grid-row: 1 / 3;
+}
+
 .unir-ocho-rows {
 	grid-row: 1 / 9;
 }
@@ -56,6 +60,9 @@
 
 .mt-6 {
 	margin-top: 18rem !important;
+}
+.mt-7 {
+	margin-top: 9rem !important;
 }
 
 .btn-custom {
@@ -127,4 +134,8 @@
 .navbar-nav-custom > li {
 	float: none;
 	display: inline-block;
+}
+
+textarea {
+	resize: none;
 }

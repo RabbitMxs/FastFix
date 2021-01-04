@@ -55,13 +55,18 @@ class baseDatos{
 	 //cabecera inicio
 		$result.= '<tr class="table-secondary">';
 		//agrega los espacios en la cabecera para los iconos
-		//foreach ($iconos as $value) 	     
-		  $result.= '<td colspan="'.count($iconos).'">
-			  <form method="post">
-				<input type="hidden" name="accion" value="formNew">
-				<input type="image" width="32px" src= "../images/add.svg">
-			  </form>
-		  </td>';
+		//foreach ($iconos as $value)
+		if (in_array("new",$iconos)) {
+			$result.= '<td colspan="'.(count($iconos)-1).'">
+				<form method="post">
+					<input type="hidden" name="accion" value="formNew">
+					<input type="image" width="32px" src= "../images/add.svg">
+				</form>
+			</td>';
+		}else{
+			$result.= '<td colspan="'.count($iconos).'">
+			</td>';
+		}
 	 
 		for ($c=0; $c <$cols ; $c++) { 
 		   $campo=mysqli_fetch_field_direct($registros,$c);
@@ -114,6 +119,18 @@ class baseDatos{
 	 $result.='</select>';
 	 return $result;
 	 }
+
+	 public function consList($tabla,$PK,$nombreCampoDesplegar,$nameCampoForm,$condicion=0){
+		$result ='<select class="form-control" name="'.$nameCampoForm.'">';
+		$result.='<option value="0" >Selecciona</option>';
+		$registros=$this->query("SELECT " .$PK. " as PK, ".$nombreCampoDesplegar." as despliega from ".$tabla." where idTipoComponente='".$condicion."' and tipo='C' order by ".$nombreCampoDesplegar);
+		foreach ($registros as $registro) {
+			$result.='<option value="'.$registro['PK'].'">'.$registro['despliega'].'</option>';
+		}
+	
+		$result.='</select>';
+		return $result;
+		}
 }
 $oBD = new baseDatos();
 ?>
