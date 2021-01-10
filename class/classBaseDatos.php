@@ -9,7 +9,7 @@ class baseDatos{
     var $user = "userTest";
     var $pass = "1234";
     var $bd = "fastfix";
-
+	var $lastid="";
     function baseDatos(){
     }
     
@@ -24,6 +24,7 @@ class baseDatos{
     function query($query){
 		$this->conecta();
 		$this->bloque=mysqli_query($this->conexion,$query);
+		$this->lastid=mysqli_insert_id($this->conexion);
 		$error=mysqli_error($this->conexion);
 		if($error>""){
 			echo $query." => ".$error;
@@ -107,6 +108,44 @@ class baseDatos{
 		 return $result;
 	 }  
  
+	 function mostProduct($query,$estilo="table-danger",$ancho=array(),$redireccion,$arreglo=""){ 
+		global $oBD;
+		$registros=$this->query($query);
+		$result ='<table border="2" class="table '.$estilo.' container space-items">';
+		$cols=mysqli_num_fields($registros);
+	 //cabecera inicio
+		$result.= '<tr class="table-secondary">';
+		//agrega los espacios en la cabecera para los iconos
+		//foreach ($iconos as $value)
+		$result.= '<td></td>';
+		for ($c=0; $c <$cols ; $c++) { 
+		   $campo=mysqli_fetch_field_direct($registros,$c);
+		   $result.= '<td>'.$campo->name.'</td>';
+		}
+		$result.= "</tr>";
+	 //cabecera fin 
+ 
+		 for ($r=0; $r<$this->numeTuplas; $r++)
+		  { $result.= '<tr>';
+	   //agrega columnas para inconos
+		   $registro=mysqli_fetch_array($registros);
+			$result.='<td width="5%">
+			<form method="post">
+			<input type="hidden" name="action" value="'.$redireccion.'">
+			'.$arreglo.'
+			<input type="hidden" name="id" value="'.$registro['id'].'">
+			<input type="image" width="32px" src= "../images/cheque.svg">
+			</form>
+			</td>';
+			for ($c=0; $c<$cols; $c++)
+			  $result.= '<td  style="width:'.$ancho[$c].';">'.$registro[$c].'</td>';
+			$result.= '</tr>';
+		  }
+		 $result.= '</table>';
+		 return $result;
+	 }
+
+
 	 public function consListBox($tabla,$PK,$nombreCampoDesplegar,$nameCampoForm,$idRegistroSeleccionado=0){
 	 $result ='<select class="form-control" name="'.$nameCampoForm.'">';
 	 $result.='<option value="0" >Selecciona</option>';
@@ -120,12 +159,13 @@ class baseDatos{
 	 return $result;
 	 }
 
-	 public function consList($tabla,$PK,$nombreCampoDesplegar,$nameCampoForm,$condicion=0){
+	 public function consList($tabla,$PK,$nombreCampoDesplegar,$nameCampoForm,$condicion=0,$idRegistroSeleccionado=0){
 		$result ='<select class="form-control" name="'.$nameCampoForm.'">';
 		$result.='<option value="0" >Selecciona</option>';
 		$registros=$this->query("SELECT " .$PK. " as PK, ".$nombreCampoDesplegar." as despliega from ".$tabla." where idTipoComponente='".$condicion."' and tipo='C' order by ".$nombreCampoDesplegar);
 		foreach ($registros as $registro) {
-			$result.='<option value="'.$registro['PK'].'">'.$registro['despliega'].'</option>';
+			$result.='<option value="'.$registro['PK'].'"
+			'.(($registro['PK']==$idRegistroSeleccionado)?"selected":""). ' >'.$registro['despliega'].'</option>';
 		}
 	
 		$result.='</select>';

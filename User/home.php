@@ -151,7 +151,7 @@
 			<div class="d-grid una-col space-cell">
 				<form style="width: 100%;" class="btn-block my-auto btn-lg mx-auto my-auto" method="post">
 					<input type="hidden" name="action" value="cotizacion">
-					<input style="width: 100%;" class="btn btn-custom btn-lg btn-block text-capitalize my-auto" type="submit" value="Cotization">
+					<input style="width: 100%;" class="btn btn-custom btn-lg btn-block text-capitalize my-auto" type="submit" value="Quotation">
 				</form>
 				<form style="width: 100%;" class="btn-block my-auto btn-lg mx-auto my-auto" method="post">
 					<input type="hidden" name="action" value="formEdit">
