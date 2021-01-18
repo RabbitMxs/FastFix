@@ -13,7 +13,10 @@ $query="SELECT id , nombre as Component_type from ".$tabla;
 	   		case 'delete':
 	   			$oBD->query("DELETE from ".$tabla." where id=".$_POST['id']);
 
-			    echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('30%','50%'));
+			    echo '<div class="container">';
+				echo '<h2 class="space-items">Component Type</h2>';
+				echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('30%','50%'));
+				echo '</div>';
 	   			break;
 	   		
 	   		case 'formEdit':
@@ -65,7 +68,10 @@ $query="SELECT id , nombre as Component_type from ".$tabla;
 			    	$subQuery=substr($Subquery,0,-2).";";
 					$oBD->query($subQuery);
 					//var_dump($query);
+					echo '<div class="container">';
+					echo '<h2 class="space-items">Component Type</h2>';
 					echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('30%','50%'));
+					echo '</div>';
 			    	break;
 
 			    case 'update':
@@ -79,7 +85,10 @@ $query="SELECT id , nombre as Component_type from ".$tabla;
 		          $SubQuery.= ' WHERE id = "'.$_POST['id'].'";';
 				  $oBD -> query($SubQuery);
 				  //var_dump($query);
-				  echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('30%','50%'));
+				  echo '<div class="container">';
+				echo '<h2 class="space-items">Component Type</h2>';
+				echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('30%','50%'));
+				echo '</div>';
 		          break;
 		         
 			    default: echo 'no se ha programado '.$_POST['accion'];
@@ -87,8 +96,10 @@ $query="SELECT id , nombre as Component_type from ".$tabla;
 	   	}
 
    }else{
-
-   echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('30%','50%'));
+		echo '<div class="container">';
+		echo '<h2 class="space-items">Component Type</h2>';
+		echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('30%','50%'));
+		echo '</div>';
   }
 
 ?>

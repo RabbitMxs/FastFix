@@ -50,7 +50,7 @@ class baseDatos{
 	function mostTabla($query,$iconos=array(),$estilo="table-danger",$ancho=array()){ 
 		global $oBD;
 		$registros=$this->query($query);
-		$result ='<table border="2" class="table '.$estilo.' container space-items">';
+		$result ='<table border="2" class="table '.$estilo.' container">';
 		$cols=mysqli_num_fields($registros);
 	   
 	 //cabecera inicio
@@ -65,8 +65,10 @@ class baseDatos{
 				</form>
 			</td>';
 		}else{
-			$result.= '<td colspan="'.count($iconos).'">
-			</td>';
+			if(!empty($iconos)){
+				$result.= '<td colspan="'.count($iconos).'">
+				</td>';
+			}
 		}
 	 
 		for ($c=0; $c <$cols ; $c++) { 
@@ -91,6 +93,19 @@ class baseDatos{
 			 
 			 </td>';
 		   }
+
+		   if (in_array("more",$iconos)) {
+			$result.='<td width="5%">
+			<form method="post">
+			   <input type="hidden" name="action" value="moreInfo">
+			   <input type="hidden" name="id" value="'.$registro['id'].'">
+			   <input type="image" width="32px" src= "../images/focus.svg">
+			   </form>
+
+			
+			</td>';
+		  }
+
 		   if (in_array("delete",$iconos)) {
 			 $result.= '<td width="5%">
 				<form method="post">
@@ -111,7 +126,7 @@ class baseDatos{
 	 function mostProduct($query,$estilo="table-danger",$ancho=array(),$redireccion,$arreglo=""){ 
 		global $oBD;
 		$registros=$this->query($query);
-		$result ='<table border="2" class="table '.$estilo.' container space-items">';
+		$result ='<table border="2" class="table '.$estilo.' container">';
 		$cols=mysqli_num_fields($registros);
 	 //cabecera inicio
 		$result.= '<tr class="table-secondary">';

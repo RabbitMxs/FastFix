@@ -12,7 +12,10 @@ if (isset($_POST['accion'])) {
 			case 'delete':
 				$oBD->query("DELETE from ".$tabla." where id=".$_POST['id']);
 
+				echo '<div class="container">';
+				echo '<h2 class="space-items">Provider</h2>';
 				echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+				echo '</div">';
 				break;
 			
 			case 'formEdit':
@@ -84,7 +87,10 @@ if (isset($_POST['accion'])) {
 					 $Subquery .=$variable."= '".$valor."' , ";
 				 $subQuery=substr($Subquery,0,-2).";";
 				 $oBD->query($subQuery);
-				 echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+				 echo '<div class="container">';
+				echo '<h2 class="space-items">Provider</h2>';
+				echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+				echo '</div">';
 				 break;
 
 			 case 'update':
@@ -98,7 +104,10 @@ if (isset($_POST['accion'])) {
 			   $SubQuery.= ' WHERE id = "'.$_POST['id'].'";';
 			   $oBD -> query($SubQuery);
 			   //var_dump($query);
-			   echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+			   echo '<div class="container">';
+				echo '<h2 class="space-items">Provider</h2>';
+				echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+				echo '</div">';
 			   break;
 			  
 			 default: echo 'no se ha programado '.$_POST['accion'];
@@ -106,8 +115,10 @@ if (isset($_POST['accion'])) {
 		}
 
 }else{
-
+	echo '<div class="container">';
+	echo '<h2 class="space-items">Provider</h2>';
 	echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+	echo '</div">';
 }
 
 ?>

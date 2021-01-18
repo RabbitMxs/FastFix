@@ -6,22 +6,22 @@
 		switch ($_POST['action']){
             case "create":
                 $query="INSERT INTO cotizacion set  fecha=CURRENT_DATE, idUsuario='".$_SESSION['id']."', idTipoCotizacion='1'";
-                //$oBD->query($query);
+                $oBD->query($query);
                 $idCot=$oBD->lastid;
                 foreach ($_POST as $variable => $valor){
                     if ($variable!="action"){
                         $query="INSERT INTO compcotizacion set idCotizacion='".$idCot."', idComponente='".$valor."'";
-                    //$oBD->query($query);
+                        $oBD->query($query);
                     }
                 }
                 $query= "SELECT sum(c.costo) as total from compcotizacion cm
                     INNER JOIN componente c on c.id=cm.idComponente
                     where cm.idCotizacion=".$idCot;
-                //$resgistro=$oBD->sacaTupla($query);
-                //$query="UPDATE cotizacion set  total=".$resgistro->total." where id=".$idCot;
-                //$oBD->query($query);
+                $resgistro=$oBD->sacaTupla($query);
+                $query="UPDATE cotizacion set  total=".$resgistro->total." where id=".$idCot;
+                $oBD->query($query);
 
-                $resgistro=$oBD->sacaTupla("SELECT total from cotizacion where id="."8"/*$idCot*/);	
+                $resgistro=$oBD->sacaTupla("SELECT total from cotizacion where id=".$idCot);	
                 echo '<form method="post" class="container d-grid dos-col space-cell mt-7">
             <div class="container d-grid una-col space-cell">
                 <div>

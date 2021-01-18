@@ -18,8 +18,11 @@ $query="SELECT C.id, C.nombre as Component,
 	   		case 'delete':
 	   			$oBD->query("DELETE from ".$tabla." where id=".$_POST['id']);
 
+				echo '<div class="container">';
+				echo '<h2 class="space-items">Components</h2>';
 				echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
-	   			break;
+				echo '</div">';
+				break;
 	   		
 	   		case 'formEdit':
 				   $resgistro=$oBD->sacaTupla("SELECT * from ".$tabla." where id=".$_POST['id']);		
@@ -97,7 +100,10 @@ $query="SELECT C.id, C.nombre as Component,
 					$Subquery .=$variable."= '".$valor."' , ";
 				$subQuery=substr($Subquery,0,-2).";";
 				$oBD->query($subQuery);
+				echo '<div class="container">';
+				echo '<h2 class="space-items">Components</h2>';
 				echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
+				echo '</div">';
 				break;
 
 			case 'update':
@@ -110,7 +116,10 @@ $query="SELECT C.id, C.nombre as Component,
 				$SubQuery = substr($SubQuery, 0, -2);
 				$SubQuery.= ' WHERE id = "'.$_POST['id'].'";';
 				$oBD -> query($SubQuery);
+				echo '<div class="container">';
+				echo '<h2 class="space-items">Components</h2>';
 				echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
+				echo '</div">';
 				break;
 				
 			default: echo 'no se ha programado '.$_POST['accion'];
@@ -118,8 +127,10 @@ $query="SELECT C.id, C.nombre as Component,
 	   	}
 
    }else{
-
-   echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
+	echo '<div class="container">';
+	echo '<h2 class="space-items">Components</h2>';
+	echo $oBD->mostTabla($query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
+	echo '</div">';   
   }
 
 ?>

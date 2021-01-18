@@ -66,8 +66,26 @@
 					</form>';
 			break;
 			
+			case 'moreInfo':
+				$query="SELECT c.nombre, c.caracteristicas, c.costo FROM compcotizacion ct 
+				INNER JOIN componente c on c.id = ct.idComponente
+				WHERE idCotizacion=".$_POST['id'];
+				echo '<div class="container">';
+				echo '<h2 class="space-items">Quote Details '.$_POST['id'].'</h2>';
+				echo $oBD->mostTabla($query,array(),"table-info",array('25%','65%','10%'));
+
+				$query="SELECT total FROM cotizacion WHERE id=".$_POST['id']; 
+				$registro=$oBD->sacaTupla($query);
+				echo '<div style="display: flex;justify-content: end;font-size: x-large;">
+                    <label>Total: $'.$registro->total.'</label>
+                </div>';
+                echo '</div>';
+			break;
 			case 'cotizacion':
-				echo $oBD->mostTabla($query,array("delete"),"table-info",array('23%','23%','23%','23%'));
+				echo '<div class="container">';
+				echo '<h2 class="space-items">My Quotes </h2>';
+				echo $oBD->mostTabla($query,array("delete","more"),"table-info",array('23%','23%','23%','23%'));
+				echo '</div>';
 			break;
 
 			case 'newPass':
