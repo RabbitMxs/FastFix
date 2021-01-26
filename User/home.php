@@ -87,6 +87,15 @@
 				echo $oBD->mostTabla($query,array("delete","more"),"table-info",array('23%','23%','23%','23%'));
 				echo '</div>';
 			break;
+			
+			case 'delete':
+				$oBD->query("DELETE FROM compcotizacion WHERE idCotizacion=".$_POST['id']);
+				$oBD->query("DELETE from ".$tabla." where id=".$_POST['id']);
+				echo '<div class="container">';
+				echo '<h2 class="space-items">My Quotes </h2>';
+				echo $oBD->mostTabla($query,array("delete","more"),"table-info",array('23%','23%','23%','23%'));
+				echo '</div">';
+			 break;
 
 			case 'newPass':
 				include("../Recursos/class.phpmailer.php");
@@ -141,6 +150,7 @@
 			   
 			  default: echo 'no se ha programado '.$_POST['action'];
 			  break;
+			
 		}
 	}
 	else{

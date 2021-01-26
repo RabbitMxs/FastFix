@@ -109,9 +109,11 @@ class baseDatos{
 		   if (in_array("delete",$iconos)) {
 			 $result.= '<td width="5%">
 				<form method="post">
-				<input type="hidden" name="accion" value="delete">
+				<input type="hidden" name="action" value="delete">
 				<input type="hidden" name="id" value="'.$registro['id'].'">
-				<input type="image" width="30px" src= "../images/delete.svg">
+				<img width="30px" src= "../images/delete.svg" onclick="$.confirm({title: \'Atención\',
+					type: \'red\',
+					content: \'¿Estas Seguro?\'})">
 				</form>
 			 </td>';
 		   }
