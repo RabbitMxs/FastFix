@@ -16,12 +16,16 @@ if(isset($_POST['action'])){
 				//$registro=mysqli_fetch_object($bloque);//obtiene el regsitro
 				$_SESSION['nombre']=$registro->nombre;
 				$_SESSION['tipo']=$registro->idTipoUsuario;
-				$_SESSION['id']=$registro->idUsuario;
+				$_SESSION['id']=$registro->id;
 				//$_SESSION['foto']=$registro->id.".".$registro->foto;
 				if($registro->idTipoUsuario=='2'){
 					header("location: User/home.php");
-				}else{
+				}
+				if($registro->idTipoUsuario=='1'){
 					header("location: Admin/home.php");
+				}
+				if($registro->idTipoUsuario=='3'){
+					header("location: Gerente/home.php");
 				}
 			}else{//si no encuentra ningun usuario
 				header("location: index.php?m=5");

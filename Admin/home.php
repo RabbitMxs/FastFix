@@ -7,7 +7,7 @@
 			from ".$tabla." c
 			INNER JOIN tipocotizacion tc on tc.idTipoCotizacion=c.idTipoCotizacion";
 
-	$registro=$oBD->sacaTupla("SELECT * from usuario WHERE idUsuario='".$_SESSION['id']."'");
+	$registro=$oBD->sacaTupla("SELECT * from usuario WHERE id='".$_SESSION['id']."'");
 	if(isset($_POST['action'])){
 		switch ($_POST['action']){
 			case 'formEdit':
@@ -76,7 +76,7 @@
 					$nuevPWD.=$cadena[rand()%$numeC];
 				}
 				$query="UPDATE usuario SET ".
-					"clave=password('".$nuevPWD."') WHERE idUsuario='".$_SESSION['id']."'";
+					"clave=password('".$nuevPWD."') WHERE id='".$_SESSION['id']."'";
 
 					$mail = new PHPMailer();
 					$mail->IsSMTP();
@@ -112,7 +112,7 @@
 				  }		            
 				}
 				$SubQuery = substr($SubQuery, 0, -2);
-				$SubQuery.= ' WHERE idUsuario = "'.$_SESSION['id'].'";';
+				$SubQuery.= ' WHERE id = "'.$_SESSION['id'].'";';
 				$oBD -> query($SubQuery);
 				header('location:home.php');
 				break;

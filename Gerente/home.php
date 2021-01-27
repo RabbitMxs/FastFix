@@ -5,8 +5,7 @@
 	$tabla="cotizacion";
 	$query="SELECT c.id, c.total, c.fecha, tc.nombre 
 			from ".$tabla." c
-			INNER JOIN tipocotizacion tc on tc.idTipoCotizacion=c.idTipoCotizacion
-			where c.idUsuario='".$_SESSION['id']."'";
+			INNER JOIN tipocotizacion tc on tc.idTipoCotizacion=c.idTipoCotizacion";
 
 	$registro=$oBD->sacaTupla("SELECT * from usuario WHERE id='".$_SESSION['id']."'");
 	if(isset($_POST['action'])){
@@ -66,38 +65,6 @@
 						</div>
 					</form>';
 			break;
-			
-			case 'moreInfo':
-				$query="SELECT c.nombre, c.caracteristicas, c.costo FROM compcotizacion ct 
-				INNER JOIN componente c on c.id = ct.idComponente
-				WHERE idCotizacion=".$_POST['id'];
-				echo '<div class="container">';
-				echo '<h2 class="space-items">Quote Details '.$_POST['id'].'</h2>';
-				echo $oBD->mostTabla($query,array(),"table-info",array('25%','65%','10%'));
-
-				$query="SELECT total FROM cotizacion WHERE id=".$_POST['id']; 
-				$registro=$oBD->sacaTupla($query);
-				echo '<div style="display: flex;justify-content: end;font-size: x-large;">
-                    <label>Total: $'.$registro->total.'</label>
-                </div>';
-                echo '</div>';
-			break;
-
-			case 'cotizacion':
-				echo '<div class="container">';
-				echo '<h2 class="space-items">My Quotes </h2>';
-				echo $oBD->mostTabla($query,array("delete","more"),"table-info",array('23%','23%','23%','23%'));
-				echo '</div>';
-			break;
-			
-			case 'delete':
-				$oBD->query("DELETE FROM compcotizacion WHERE idCotizacion=".$_POST['id']);
-				$oBD->query("DELETE from ".$tabla." where id=".$_POST['id']);
-				echo '<div class="container">';
-				echo '<h2 class="space-items">My Quotes </h2>';
-				echo $oBD->mostTabla($query,array("delete","more"),"table-info",array('23%','23%','23%','23%'));
-				echo '</div">';
-			 break;
 
 			case 'newPass':
 				include("../Recursos/class.phpmailer.php");
@@ -109,7 +76,7 @@
 					$nuevPWD.=$cadena[rand()%$numeC];
 				}
 				$query="UPDATE usuario SET ".
-					"clave=password('".$nuevPWD."') WHERE id='".$_SESSION['id']."'";
+					"clave=password('".$nuevPWD."') WHERE id ='".$_SESSION['id']."'";
 
 					$mail = new PHPMailer();
 					$mail->IsSMTP();
@@ -152,7 +119,6 @@
 			   
 			  default: echo 'no se ha programado '.$_POST['action'];
 			  break;
-			
 		}
 	}
 	else{
@@ -179,10 +145,6 @@
 				</div>
 			</div>
 			<div class="d-grid una-col space-cell">
-				<form style="width: 100%;" class="btn-block my-auto btn-lg mx-auto my-auto" method="post">
-					<input type="hidden" name="action" value="cotizacion">
-					<input style="width: 100%;" class="btn btn-custom btn-lg btn-block text-capitalize my-auto" type="submit" value="Quotation">
-				</form>
 				<form style="width: 100%;" class="btn-block my-auto btn-lg mx-auto my-auto" method="post">
 					<input type="hidden" name="action" value="formEdit">
 					<input style="width: 100%;"  class="btn btn-custom d-sm-block btn-lg text-capitalize my-auto" type="submit" value="Edit Info">

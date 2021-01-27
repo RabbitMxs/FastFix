@@ -63,9 +63,9 @@ else{
 			</head>
 			<body>
 				<h3 class="logo-return">
-					<a href="index.html"
-						><img src="images/logo.png" alt="Logo" width="90" height="90"
-					/></a>
+					<a href="index.php">
+						<img src="images/logo.png" alt="Logo" width="90" height="90"/>
+					</a>
 				</h3>
 				<form method="post" class="container d-grid ancho-col una-col mx-auto mt-6">
 					<div>

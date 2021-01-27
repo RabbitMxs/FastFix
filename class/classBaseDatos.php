@@ -111,9 +111,8 @@ class baseDatos{
 				<form method="post">
 				<input type="hidden" name="action" value="delete">
 				<input type="hidden" name="id" value="'.$registro['id'].'">
-				<img width="30px" src= "../images/delete.svg" onclick="$.confirm({title: \'Atención\',
-					type: \'red\',
-					content: \'¿Estas Seguro?\'})">
+				<input type="image" width="30px" src= "../images/delete.svg" 
+				onclick="return confirm(\'Estas seguro de elimar el elemnto?\')">
 				</form>
 			 </td>';
 		   }
