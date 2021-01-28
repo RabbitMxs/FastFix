@@ -16,6 +16,9 @@
 			<li class="nav-item">
 				<a class="nav-link color" href="sell.php">Sell</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link color" href="quote.php">Quote Component</a>
+			</li>
 			<li class="nav-item logout">
 				<a class="nav-link" href="../index.php"><img src="../images/logout.svg" alt="Logout" width="20" height="20"/></a>
 			</li>

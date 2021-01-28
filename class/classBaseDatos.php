@@ -54,7 +54,7 @@ class baseDatos{
 		$cols=mysqli_num_fields($registros);
 	   
 	 //cabecera inicio
-		$result.= '<tr class="table-secondary">';
+		$result.= '<tr class="table-dark">';
 		//agrega los espacios en la cabecera para los iconos
 		//foreach ($iconos as $value)
 		if (in_array("new",$iconos)) {
@@ -127,10 +127,10 @@ class baseDatos{
 	 function mostProduct($query,$estilo="table-danger",$ancho=array(),$redireccion,$arreglo=""){ 
 		global $oBD;
 		$registros=$this->query($query);
-		$result ='<table border="2" class="table '.$estilo.' container">';
+		$result ='<table class="table '.$estilo.' container">';
 		$cols=mysqli_num_fields($registros);
 	 //cabecera inicio
-		$result.= '<tr class="table-secondary">';
+		$result.= '<tr class="table-dark">';
 		//agrega los espacios en la cabecera para los iconos
 		//foreach ($iconos as $value)
 		$result.= '<td></td>';

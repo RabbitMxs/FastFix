@@ -12,14 +12,14 @@ class classComponente extends BaseDatos{
     function accion($pAction){
         switch ($pAction) {
             case 'list':
-                echo $this->listado($this->query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
+                echo $this->listado($this->query,array("new","edit","delete"),"table-light",array('5%','15%','27%','10%','18%','15%'));
             break;
             case 'delete':
                 $this->query("DELETE from ".$this->tabla." where id=".$_REQUEST['id']);
 
              echo '<div class="container">';
              echo '<h2 class="space-items">Components</h2>';
-             echo $this->Listado($this->query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
+             echo $this->Listado($this->query,array("new","edit","delete"),"table-light",array('5%','15%','27%','10%','18%','15%'));
              echo '</div">';
              break;
             
@@ -95,7 +95,7 @@ class classComponente extends BaseDatos{
              $this->query($subQuery);
              echo '<div class="container">';
              echo '<h2 class="space-items">Components</h2>';
-             echo $this->Listado($this->query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
+             echo $this->Listado($this->query,array("new","edit","delete"),"table-light",array('5%','15%','27%','10%','18%','15%'));
              echo '</div">';
              break;
 
@@ -111,7 +111,7 @@ class classComponente extends BaseDatos{
              $this -> query($SubQuery);
              echo '<div class="container">';
              echo '<h2 class="space-items">Components</h2>';
-             echo $this->Listado($this->query,array("new","edit","delete"),"table-info",array('5%','15%','27%','10%','18%','15%'));
+             echo $this->Listado($this->query,array("new","edit","delete"),"table-light",array('5%','15%','27%','10%','18%','15%'));
              echo '</div">';
              break;
              
@@ -120,12 +120,12 @@ class classComponente extends BaseDatos{
         }
     }
 
-    function listado($query, $iconos=array() , $estilo="table-info",$ancho=array()){
+    function listado($query, $iconos=array() , $estilo="table-light",$ancho=array()){
         $registros=$this->query($query);
         $result='<table border="1" class="table '.$estilo.'">';
         $cols=mysqli_num_fields($registros);
         //cabecera
-        $result.= '<tr class="table table-warning">';
+        $result.= '<tr class="table table-dark">';
         if (in_array("new",$iconos)) {
 			$result.= '<td colspan="'.(count($iconos)-1).'">
                         <img width="32px" src="../images/add.svg" onclick="componente(\'formNew\')">

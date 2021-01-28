@@ -9,13 +9,13 @@
                 $query="SELECT C.id, C.nombre as Component,
                 TC.nombre as ComponentType,
                 C.caracteristicas as Characteristics,
-                C.costo as Cost 
+                CONCAT('$',C.costo) as Cost  
                 from componente C 
                 join tipoComponente TC on TC.id=C.idTipoComponente
                 where tipo='V' AND idTipoComponente=2";
                 echo '<div class="container">';
 				echo '<h2 class="space-items">Motherboard </h2>';
-                echo $oBD->mostProduct($query,"table-info",array('5%','15%','15%','50%','10%'),"ram",'<input type="hidden" name="componentes" value='.serialize($array).'>');
+                echo $oBD->mostProduct($query,"table-light",array('5%','15%','15%','50%','10%'),"ram",'<input type="hidden" name="componentes" value='.serialize($array).'>');
                 echo '</div">';
             break;
             case 'ram':
@@ -24,13 +24,13 @@
                 $query="SELECT C.id, C.nombre as Component,
                 TC.nombre as ComponentType,
                 C.caracteristicas as Characteristics,
-                C.costo as Cost 
+                CONCAT('$',C.costo) as Cost  
                 from componente C 
                 join tipoComponente TC on TC.id=C.idTipoComponente
                 where tipo='V' AND idTipoComponente=8";
                 echo '<div class="container">';
 				echo '<h2 class="space-items">RAM </h2>';
-                echo $oBD->mostProduct($query,"table-info",array('5%','15%','15%','50%','10%'),"video",'<input type="hidden" name="componentes" value='.serialize($array).'>');
+                echo $oBD->mostProduct($query,"table-light",array('5%','15%','15%','50%','10%'),"video",'<input type="hidden" name="componentes" value='.serialize($array).'>');
                 echo '</div">';
             break;
             case 'video':
@@ -39,13 +39,13 @@
                 $query="SELECT C.id, C.nombre as Component,
                 TC.nombre as ComponentType,
                 C.caracteristicas as Characteristics,
-                C.costo as Cost 
+                CONCAT('$',C.costo) as Cost  
                 from componente C 
                 join tipoComponente TC on TC.id=C.idTipoComponente
                 where tipo='V' AND idTipoComponente=3";
                 echo '<div class="container">';
 				echo '<h2 class="space-items">GPU </h2>';
-                echo $oBD->mostProduct($query,"table-info",array('5%','15%','15%','50%','10%'),"enfriamiento",'<input type="hidden" name="componentes" value='.serialize($array).'>');
+                echo $oBD->mostProduct($query,"table-light",array('5%','15%','15%','50%','10%'),"enfriamiento",'<input type="hidden" name="componentes" value='.serialize($array).'>');
                 echo '</div">';
             break;
             case 'enfriamiento':
@@ -54,13 +54,13 @@
                 $query="SELECT C.id, C.nombre as Component,
                 TC.nombre as ComponentType,
                 C.caracteristicas as Characteristics,
-                C.costo as Cost 
+                CONCAT('$',C.costo) as Cost  
                 from componente C 
                 join tipoComponente TC on TC.id=C.idTipoComponente
                 where tipo='V' AND idTipoComponente=6";
                 echo '<div class="container">';
 				echo '<h2 class="space-items">Coolers </h2>';
-                echo $oBD->mostProduct($query,"table-info",array('5%','15%','15%','50%','10%'),"HDD",'<input type="hidden" name="componentes" value='.serialize($array).'>');
+                echo $oBD->mostProduct($query,"table-light",array('5%','15%','15%','50%','10%'),"HDD",'<input type="hidden" name="componentes" value='.serialize($array).'>');
                 echo '</div">';
             break;
 
@@ -70,13 +70,13 @@
                 $query="SELECT C.id, C.nombre as Component,
                 TC.nombre as ComponentType,
                 C.caracteristicas as Characteristics,
-                C.costo as Cost 
+                CONCAT('$',C.costo) as Cost  
                 from componente C 
                 join tipoComponente TC on TC.id=C.idTipoComponente
                 where tipo='V' AND idTipoComponente=7";
                 echo '<div class="container">';
 				echo '<h2 class="space-items">Hard Disk </h2>';
-                echo $oBD->mostProduct($query,"table-info",array('5%','15%','15%','50%','10%'),"fuente",'<input type="hidden" name="componentes" value='.serialize($array).'>');
+                echo $oBD->mostProduct($query,"table-light",array('5%','15%','15%','50%','10%'),"fuente",'<input type="hidden" name="componentes" value='.serialize($array).'>');
                 echo '</div">';
             break;
 
@@ -86,13 +86,13 @@
                 $query="SELECT C.id, C.nombre as Component,
                 TC.nombre as ComponentType,
                 C.caracteristicas as Characteristics,
-                C.costo as Cost 
+                CONCAT('$',C.costo) as Cost  
                 from componente C 
                 join tipoComponente TC on TC.id=C.idTipoComponente
                 where tipo='V' AND idTipoComponente=5";
                 echo '<div class="container">';
 				echo '<h2 class="space-items">Power Supply </h2>';
-                echo $oBD->mostProduct($query,"table-info",array('5%','15%','15%','50%','10%'),"gabinete",'<input type="hidden" name="componentes" value='.serialize($array).'>');
+                echo $oBD->mostProduct($query,"table-light",array('5%','15%','15%','50%','10%'),"gabinete",'<input type="hidden" name="componentes" value='.serialize($array).'>');
                 echo '</div">';
             break;
             case 'gabinete':
@@ -101,19 +101,19 @@
                 $query="SELECT C.id, C.nombre as Component,
                 TC.nombre as ComponentType,
                 C.caracteristicas as Characteristics,
-                C.costo as Cost 
+                CONCAT('$',C.costo) as Cost  
                 from componente C 
                 join tipoComponente TC on TC.id=C.idTipoComponente
                 where tipo='V' AND idTipoComponente=4";
                 echo '<div class="container">';
 				echo '<h2 class="space-items">Case</h2>';
-                echo $oBD->mostProduct($query,"table-info",array('5%','15%','15%','50%','10%'),"registro",'<input type="hidden" name="componentes" value='.serialize($array).'>');
+                echo $oBD->mostProduct($query,"table-light",array('5%','15%','15%','50%','10%'),"registro",'<input type="hidden" name="componentes" value='.serialize($array).'>');
                 echo '</div">';
             break;
             case 'registro':
                 $array=unserialize($_POST['componentes']);
                 array_push($array,$_POST['id']);
-                $query="SELECT nombre, caracteristicas, costo FROM componente WHERE id = ".$array[0].
+                $query="SELECT nombre, caracteristicas, CONCAT('$',costo) as Cost FROM componente WHERE id = ".$array[0].
                 " OR id = ".$array[1].
                 " OR id = ".$array[2].
                 " OR id = ".$array[3].
@@ -123,7 +123,7 @@
                 " OR id = ".$array[7];
                 echo '<div class="container">';
 				echo '<h2 class="space-items">Purchase Quote</h2>';
-                echo $oBD->mostTabla($query,array(),"table-info",array('25%','65%','10%'));
+                echo $oBD->mostTabla($query,array(),"table-light",array('25%','65%','10%'));
                 
                 //insert_bd
                 $query="INSERT INTO cotizacion set  fecha=CURRENT_DATE, idUsuario='".$_SESSION['id']."', idTipoCotizacion='2'";
@@ -151,13 +151,13 @@
         $query="SELECT C.id, C.nombre as Component,
                 TC.nombre as ComponentType,
                 C.caracteristicas as Characteristics,
-                C.costo as Cost 
+                CONCAT('$',C.costo) as Cost 
                 from componente C 
                 join tipoComponente TC on TC.id=C.idTipoComponente
                 where tipo='V' AND idTipoComponente=1";
         echo '<div class="container">';
         echo '<h2 class="space-items">Processor</h2>';
-        echo $oBD->mostProduct($query,"table-info",array('5%','15%','15%','50%','10%'),"mobo");
+        echo $oBD->mostProduct($query,"table-light",array('5%','15%','15%','50%','10%'),"mobo");
         echo '</div>';
     }
 ?>

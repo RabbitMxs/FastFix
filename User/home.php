@@ -3,7 +3,7 @@
 	include "menu.php";
 	include "../class/classBaseDatos.php";
 	$tabla="cotizacion";
-	$query="SELECT c.id, c.total, c.fecha, tc.nombre 
+	$query="SELECT c.id, CONCAT('$',c.total) as Total, c.fecha, tc.nombre 
 			from ".$tabla." c
 			INNER JOIN tipocotizacion tc on tc.idTipoCotizacion=c.idTipoCotizacion
 			where c.idUsuario='".$_SESSION['id']."'";
@@ -68,12 +68,12 @@
 			break;
 			
 			case 'moreInfo':
-				$query="SELECT c.nombre, c.caracteristicas, c.costo FROM compcotizacion ct 
+				$query="SELECT c.nombre, c.caracteristicas, CONCAT('$',c.costo) as Costo FROM compcotizacion ct 
 				INNER JOIN componente c on c.id = ct.idComponente
 				WHERE idCotizacion=".$_POST['id'];
 				echo '<div class="container">';
 				echo '<h2 class="space-items">Quote Details '.$_POST['id'].'</h2>';
-				echo $oBD->mostTabla($query,array(),"table-info",array('25%','65%','10%'));
+				echo $oBD->mostTabla($query,array(),"table-light",array('25%','65%','10%'));
 
 				$query="SELECT total FROM cotizacion WHERE id=".$_POST['id']; 
 				$registro=$oBD->sacaTupla($query);
@@ -86,7 +86,7 @@
 			case 'cotizacion':
 				echo '<div class="container">';
 				echo '<h2 class="space-items">My Quotes </h2>';
-				echo $oBD->mostTabla($query,array("delete","more"),"table-info",array('23%','23%','23%','23%'));
+				echo $oBD->mostTabla($query,array("delete","more"),"table-light",array('23%','23%','23%','23%'));
 				echo '</div>';
 			break;
 			
@@ -95,7 +95,7 @@
 				$oBD->query("DELETE from ".$tabla." where id=".$_POST['id']);
 				echo '<div class="container">';
 				echo '<h2 class="space-items">My Quotes </h2>';
-				echo $oBD->mostTabla($query,array("delete","more"),"table-info",array('23%','23%','23%','23%'));
+				echo $oBD->mostTabla($query,array("delete","more"),"table-light",array('23%','23%','23%','23%'));
 				echo '</div">';
 			 break;
 
@@ -116,7 +116,7 @@
 					$mail->Host="smtp.gmail.com";   //mail.google
 					$mail->SMTPSecure = 'ssl';      // secure transfer enabled REQUIRED for GMail
 					$mail->Port = 465;              // set the SMTP port for the GMAIL server
-					$mail->SMTPDebug  = 1;          // enables SMTP debug information (for testing)
+					$mail->SMTPDebug  = 1;          // enables SMTP debug lightrmation (for testing)
 													// 1 = errors and messages
 													// 2 = messages only
 					$mail->SMTPAuth = true;         //enable SMTP authentication

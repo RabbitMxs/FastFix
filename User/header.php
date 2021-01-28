@@ -7,7 +7,7 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html style="height:100%; margin:0;">
     <head>
         <title>Fast Fix</title>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
@@ -17,4 +17,4 @@
 		<script src="../JS/bootstrap.js"> </script>
         <script src="../JS/jquery-confirm.js"> </script>
     </head>
-    <body>
+    <body style="height:100%; margin:0; background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(169,223,236,1) 87%, rgba(84,191,216,1) 100%);">

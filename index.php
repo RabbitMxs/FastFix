@@ -35,13 +35,13 @@ if(isset($_POST['action'])){
 }
 else{
 	echo '<!DOCTYPE html>
-	<html>
+	<html style="height:100%; margin:0;">
 		<head>
 			<title>Fast Fix</title>
 			<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 			<link rel="stylesheet" type="text/css" href="css/custom.css" />
 		</head>
-		<body>
+		<body style="height:100%; margin:0; background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(169,223,236,1) 87%, rgba(84,191,216,1) 100%);"> 
 			<div class="container d-grid ancho-col una-col">
 				<img src="images/logo.png" alt="Fast Fix" class="img-fluid mx-auto" />
 				<form method="post" class="d-grid una-col">

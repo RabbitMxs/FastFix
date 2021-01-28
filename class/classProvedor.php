@@ -7,14 +7,14 @@ class classProvedor extends BaseDatos{
     function accion($pAction){
         switch ($pAction) {
             case 'list':
-                echo $this->listado($this->query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+                echo $this->listado($this->query,array("new","edit","delete"),"table-light",array('10%','25%','55%'));
             break;
             case 'delete':
 				$this->query("DELETE from ".$this->tabla." where id=".$_REQUEST['id']);
 
 				echo '<div class="container">';
 				echo '<h2 class="space-items">Provider</h2>';
-				echo $this->listado($this->query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+				echo $this->listado($this->query,array("new","edit","delete"),"table-light",array('10%','25%','55%'));
 				echo '</div">';
 				break;
 			
@@ -87,7 +87,7 @@ class classProvedor extends BaseDatos{
 				 $this->query($subQuery);
 				 echo '<div class="container">';
 				echo '<h2 class="space-items">Provider</h2>';
-				echo $this->listado($this->query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+				echo $this->listado($this->query,array("new","edit","delete"),"table-light",array('10%','25%','55%'));
 				echo '</div">';
 				 break;
 
@@ -104,7 +104,7 @@ class classProvedor extends BaseDatos{
 			   //var_dump($this->query);
 			   echo '<div class="container">';
 				echo '<h2 class="space-items">Provider</h2>';
-				echo $this->listado($this->query,array("new","edit","delete"),"table-info",array('10%','25%','55%'));
+				echo $this->listado($this->query,array("new","edit","delete"),"table-light",array('10%','25%','55%'));
 				echo '</div">';
 			   break;
 			  
@@ -113,12 +113,12 @@ class classProvedor extends BaseDatos{
 		}
     }
 
-    function listado($query, $iconos=array() , $estilo="table-info",$ancho=array()){
+    function listado($query, $iconos=array() , $estilo="table-light",$ancho=array()){
         $registros=$this->query($query);
         $result='<table border="1" class="table '.$estilo.'">';
         $cols=mysqli_num_fields($registros);
         //cabecera
-        $result.= '<tr class="table table-warning">';
+        $result.= '<tr class="table table-dark">';
         if (in_array("new",$iconos)) {
 			$result.= '<td colspan="'.(count($iconos)-1).'">
                         <img width="32px" src="../images/add.svg" onclick="provedor(\'formNew\')">
